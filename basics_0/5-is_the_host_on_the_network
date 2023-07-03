@@ -2,4 +2,10 @@
 #A script that displays listening ports:
 
 str="$*"
-ping str
+if [ -z $str ]
+then
+echo 'Usage: 5-is_the_host_on_the_network {IP_ADDRESS}'
+exit 1
+else
+ping -c 5 $str
+fi
